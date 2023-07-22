@@ -24,16 +24,16 @@ export default {
     components: {
         ProductBox
     },
-    data() {
+    data() { 
         return {
             products: [],
-            query: ''
+            query: ''   // returns the data object for the component
         }
     },
-    mounted() {
+    mounted() { // vue lifecycle hook: runs after the Vue component is mounted on the DOM
         document.title = 'Search | Bad Irony'
 
-        let uri = window.location.search.substring(1)
+        let uri = window.location.search.substring(1) // gets search parameters from the url
         let params = new URLSearchParams(uri)
 
         if (params.get('query')) {
@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         async performSearch() {
-            this.$store.commit('setIsLoading', true)
+            this.$store.commit('setIsLoading', true)  
 
             await axios
                 .post('/api/v1/products/search/', {'query': this.query})
@@ -58,5 +58,5 @@ export default {
             this.$store.commit('setIsLoading', false)
         }
     }
-}
+}   // this inside the arrow function has the same value as this in the performSearch method, which allows you to directly modify the products data property.
 </script>

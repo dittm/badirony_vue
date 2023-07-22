@@ -163,6 +163,7 @@ export default {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 
+  // wenn die klasse zusätzlich folgende klasse enthält
   &.is-loading {
     height: 80px;
   }
@@ -196,5 +197,10 @@ a.router-link-active.router-link-exact-active.navbar-item {
   color: #fff !important;
   background-color: transparent;
 }
+
+@media screen and (max-width: 1023px) {
+.navbar-menu {
+    background-color: rgb(10, 10, 10) !important;
+}}
 
 </style>
